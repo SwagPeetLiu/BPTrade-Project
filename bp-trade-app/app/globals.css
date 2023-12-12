@@ -3,25 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --main-orange: #eb8b31;
+  --main-blue: #5ca9d6;
+  --glow-white: #faebd7;
+  --navy-black-colour:#121217;
+  --white-colour:255, 255, 255;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--main-orange);
+  background: var(--navy-black-colour);
 }
+
+.loader span{
+  color: var(--main-orange);
+  text-shadow: 0 0 0 var(--glow-white);
+  animation: loading 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes loading{
+  to {
+    text-shadow: 10px 0 60px var(--main-orange);
+    color: rgb(var(--main-orange));
+  }
+}
+
+.middle-collide-bg{
+  background: linear-gradient(0.25turn, var(--main-blue), #ebf8e1, rgb(var(--main-orange)));
+}
+
+.animated-gradient{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
